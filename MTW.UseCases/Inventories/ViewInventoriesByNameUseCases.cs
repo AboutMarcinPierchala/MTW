@@ -1,4 +1,5 @@
 ﻿using MTW.CoreBusiness;
+using MTW.UseCases.Inventories.Interfaces;
 using MTW.UseCases.PluginInterfaces;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MTW.UseCases.Inventories
 {
-    public class ViewInventoriesByNameUseCases
+    public class ViewInventoriesByNameUseCases : IViewInventoriesByNameUseCases
     {
         private readonly IInventoryRepository _inventoryRepository;
 

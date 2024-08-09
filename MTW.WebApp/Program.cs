@@ -1,3 +1,7 @@
+using MTW.Plugins.InMemory;
+using MTW.UseCases.Inventories;
+using MTW.UseCases.Inventories.Interfaces;
+using MTW.UseCases.PluginInterfaces;
 using MTW.WebApp.Components;
 
 namespace MTW.WebApp
@@ -10,6 +14,8 @@ namespace MTW.WebApp
 
             // Add services to the container.
             builder.Services.AddRazorComponents();
+            builder.Services.AddSingleton<IInventoryRepository, InventoryRepository>();
+            builder.Services.AddTransient<IViewInventoriesByNameUseCases, ViewInventoriesByNameUseCases>();
 
             var app = builder.Build();
 

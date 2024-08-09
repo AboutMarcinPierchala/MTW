@@ -1,0 +1,44 @@
+﻿@inject IViewInventoriesByNameUseCases ViewInventoriesByNameUseCases
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Value</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (inventories is not null && inventories.Count > 0)
+        {
+            foreach (var inventory in inventories)
+            {
+                <tr>
+                    <td>@inventory.InventoryName</td>
+                    <td>@inventory.Price</td>
+                    <td>@inventory.Quantity</td>
+                    <td>@(@inventory.Price * @inventory.Quantity)</td>
+                    <td>
+                        <button 
+                            class="btn btn-light"
+                            type="button">
+                            EDIT
+                        </button>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+@code {
+    private List<Inventory>? inventories;
+
+    protected override async Task OnInitializedAsync()
+    {
+        inventories = (await ViewInventoriesByNameUseCases.ExecuteAsync()).ToList();
+    }
+}

@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTW.WebApp", "MTW.WebApp\MTW.WebApp.csproj", "{F90F1601-9567-4D55-95CD-D02834801CE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTW.WebApp", "MTW.WebApp\MTW.WebApp.csproj", "{F90F1601-9567-4D55-95CD-D02834801CE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTW.UseCases", "MTW.UseCases\MTW.UseCases.csproj", "{4A9D681F-ECEF-4FFB-AFAF-0A711DB7C7DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTW.UseCases", "MTW.UseCases\MTW.UseCases.csproj", "{4A9D681F-ECEF-4FFB-AFAF-0A711DB7C7DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTW.CoreBusiness", "MTW.CoreBusiness\MTW.CoreBusiness.csproj", "{F93DD851-F7D2-4E23-AD44-0C5DD2949F42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTW.CoreBusiness", "MTW.CoreBusiness\MTW.CoreBusiness.csproj", "{F93DD851-F7D2-4E23-AD44-0C5DD2949F42}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MTW.Plugins", "MTW.Plugins", "{37537DE7-985F-49C6-BAC4-B308F3B72E2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTW.Plugins.InMemory", "MTW.Plugins\MTW.Plugins.InMemory\MTW.Plugins.InMemory.csproj", "{4CAB03C5-A35B-4C05-87B9-C6C98076EF4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,9 +31,16 @@ Global
 		{F93DD851-F7D2-4E23-AD44-0C5DD2949F42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F93DD851-F7D2-4E23-AD44-0C5DD2949F42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F93DD851-F7D2-4E23-AD44-0C5DD2949F42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CAB03C5-A35B-4C05-87B9-C6C98076EF4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CAB03C5-A35B-4C05-87B9-C6C98076EF4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CAB03C5-A35B-4C05-87B9-C6C98076EF4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CAB03C5-A35B-4C05-87B9-C6C98076EF4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4CAB03C5-A35B-4C05-87B9-C6C98076EF4D} = {37537DE7-985F-49C6-BAC4-B308F3B72E2C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F2A31232-DF27-4CDC-8EF7-C0F09B418EE6}
