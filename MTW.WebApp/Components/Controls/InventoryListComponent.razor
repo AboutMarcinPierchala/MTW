@@ -15,19 +15,7 @@
         {
             foreach (var inventory in inventories)
             {
-                <tr>
-                    <td>@inventory.InventoryName</td>
-                    <td>@inventory.Price</td>
-                    <td>@inventory.Quantity</td>
-                    <td>@(@inventory.Price * @inventory.Quantity)</td>
-                    <td>
-                        <button 
-                            class="btn btn-light"
-                            type="button">
-                            EDIT
-                        </button>
-                    </td>
-                </tr>
+                <InventoryListItemsComponent inventory="@inventory"></InventoryListItemsComponent>
             }
         }
     </tbody>

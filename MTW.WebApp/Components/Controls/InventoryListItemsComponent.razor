@@ -1,0 +1,20 @@
+﻿@if(inventory is not null)
+{
+    <tr>
+        <td>@inventory.InventoryName</td>
+        <td>@inventory.Price PLN</td>
+        <td>@inventory.Quantity</td>
+        <td>@(@inventory.Price * @inventory.Quantity) PLN</td>
+        <td>
+            <button class="btn btn-light"
+                    type="button">
+                EDIT
+            </button>
+        </td>
+    </tr>
+}
+
+@code {
+    [Parameter]
+    public Inventory? inventory { get; set; }
+}
