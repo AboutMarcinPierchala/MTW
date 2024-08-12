@@ -16,6 +16,20 @@ namespace MTW.Plugins.InMemory
                 new Inventory{InventoryId = 3, InventoryName="Full Downhill Frame", Price = 750, Quantity=5}
             };
         }
+
+        public Task AddInventoryAsync(Inventory inventory)
+        {
+            if(_inventories.Any(i=>i.InventoryName.Equals(inventory.InventoryName, StringComparison.OrdinalIgnoreCase)))
+            {
+                //inventory.Quantity += 1;
+                return Task.CompletedTask;
+            }
+            var maxId = _inventories.Max(i => i.InventoryId);
+            inventory.InventoryId = maxId+1;
+            _inventories.Add(inventory);
+            return Task.CompletedTask;
+        }
+
         public async Task<IEnumerable<Inventory>> GetInventoriesByNameAsync(string name)
         {
             if (string.IsNullOrEmpty(name))

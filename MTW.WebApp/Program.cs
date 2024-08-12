@@ -16,6 +16,7 @@ namespace MTW.WebApp
             builder.Services.AddRazorComponents();
             builder.Services.AddSingleton<IInventoryRepository, InventoryRepository>();
             builder.Services.AddTransient<IViewInventoriesByNameUseCases, ViewInventoriesByNameUseCases>();
+            builder.Services.AddTransient<IAddInventoryUseCase, AddInventoryUseCase>();
 
             var app = builder.Build();
 
