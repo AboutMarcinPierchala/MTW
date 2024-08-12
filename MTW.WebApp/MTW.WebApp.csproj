@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Components\Pages\Inventories\AddInventory.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\MTW.CoreBusiness\MTW.CoreBusiness.csproj" />
     <ProjectReference Include="..\MTW.Plugins\MTW.Plugins.InMemory\MTW.Plugins.InMemory.csproj" />
     <ProjectReference Include="..\MTW.UseCases\MTW.UseCases.csproj" />
