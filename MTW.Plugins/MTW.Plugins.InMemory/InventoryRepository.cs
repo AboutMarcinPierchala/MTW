@@ -33,7 +33,11 @@ namespace MTW.Plugins.InMemory
         
         public Task EditInventoryAsync(int invId, Inventory inventory)
         {
-            if (inventory.InventoryId != invId) return null;
+            if (_inventories.Any(i => i.InventoryName.Equals(inventory.InventoryName, StringComparison.OrdinalIgnoreCase)
+                && i.InventoryId != inventory.InventoryId))
+            {
+                return Task.CompletedTask;
+            }
             var invToEdit = _inventories.FirstOrDefault(i => i.InventoryId == invId);
             if (invToEdit != null)
             {

@@ -1,0 +1,22 @@
+﻿<EditForm Model="searchFilter" FormName="searchBarForm" OnSubmit="Search">
+    <div class="input-group">
+        <InputText class="form-control"
+                   placeholder="search by name"
+                   @bind-Value="this.searchFilter">
+        </InputText>
+        <button type="submit" class="btn-success input-group-text">Search</button>
+    </div>
+</EditForm>
+
+@code {
+    [Parameter]
+    public EventCallback<string> SearchBarCallback { get; set; }
+
+    [SupplyParameterFromForm]
+    private string searchFilter { get; set; } = string.Empty;
+
+    private void Search(){
+        SearchBarCallback.InvokeAsync(searchFilter);
+    }
+
+}

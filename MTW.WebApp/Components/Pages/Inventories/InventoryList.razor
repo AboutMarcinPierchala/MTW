@@ -5,8 +5,20 @@
 <br/>
 <a href="/addinventory" class="btn btn-secondary">Add new inventory</a>
 <br/>
-<InventoryListComponent></InventoryListComponent>
+<br/>
+<br />
+<br />
+<SearchBarComponent SearchBarCallback="HandleSearch"></SearchBarComponent>
+<br/>
+<br/>
+<InventoryListComponent SearchFilter="@inventorySearchByName"></InventoryListComponent>
 
 @code {
+    
+    private string? inventorySearchByName;
 
+    private void HandleSearch(string searchFilter)
+    {
+        inventorySearchByName = searchFilter;
+    }
 }

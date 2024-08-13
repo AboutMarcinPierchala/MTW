@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Components\SearchBarComponent.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MTW.CoreBusiness\MTW.CoreBusiness.csproj" />
     <ProjectReference Include="..\MTW.Plugins\MTW.Plugins.InMemory\MTW.Plugins.InMemory.csproj" />
     <ProjectReference Include="..\MTW.UseCases\MTW.UseCases.csproj" />
@@ -18,10 +22,16 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Components\Pages\Inventories\AddInventory.razor" />
+    <_ContentIncludedByDefault Remove="Components\SearchBarComponent.razor" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="Components\Pages\Inventories\AddInventory.razor" />
+    <None Include="Components\Controls\SearchBarComponent.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Components\SearchBarComponent.razor" />
   </ItemGroup>
 
 </Project>
