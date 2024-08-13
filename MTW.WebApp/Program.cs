@@ -17,6 +17,7 @@ namespace MTW.WebApp
             builder.Services.AddSingleton<IInventoryRepository, InventoryRepository>();
             builder.Services.AddTransient<IViewInventoriesByNameUseCases, ViewInventoriesByNameUseCases>();
             builder.Services.AddTransient<IAddInventoryUseCase, AddInventoryUseCase>();
+            builder.Services.AddTransient<IEditInventoryUseCase, EditInventoryUseCase>();
 
             var app = builder.Build();
 

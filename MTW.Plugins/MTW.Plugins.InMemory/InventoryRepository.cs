@@ -30,6 +30,21 @@ namespace MTW.Plugins.InMemory
             return Task.CompletedTask;
         }
 
+        
+        public Task EditInventoryAsync(int invId, Inventory inventory)
+        {
+            if (inventory.InventoryId != invId) return null;
+            var invToEdit = _inventories.FirstOrDefault(i => i.InventoryId == invId);
+            if (invToEdit != null)
+            {
+                invToEdit.InventoryName = inventory.InventoryName;
+                invToEdit.Price = inventory.Price;
+                invToEdit.Quantity = inventory.Quantity;
+            }
+
+            return Task.FromResult(invToEdit);
+        }
+
         public async Task<IEnumerable<Inventory>> GetInventoriesByNameAsync(string name)
         {
             if (string.IsNullOrEmpty(name))
@@ -37,6 +52,12 @@ namespace MTW.Plugins.InMemory
                 return await Task.FromResult(_inventories);
             }
             return _inventories.Where(x=>x.InventoryName.Contains(name, StringComparison.OrdinalIgnoreCase));
+        }
+
+        public Inventory? GetInventoryById(int id)
+        {
+            var inventory = _inventories.FirstOrDefault(i=> i.InventoryId==id);
+                return inventory;            
         }
     }
 }
