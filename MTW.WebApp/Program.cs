@@ -2,6 +2,8 @@ using MTW.Plugins.InMemory;
 using MTW.UseCases.Inventories;
 using MTW.UseCases.Inventories.Interfaces;
 using MTW.UseCases.PluginInterfaces;
+using MTW.UseCases.Products;
+using MTW.UseCases.Products.Interfaces;
 using MTW.WebApp.Components;
 
 namespace MTW.WebApp
@@ -15,10 +17,12 @@ namespace MTW.WebApp
             // Add services to the container.
             builder.Services.AddRazorComponents();
             builder.Services.AddSingleton<IInventoryRepository, InventoryRepository>();
-            builder.Services.AddTransient<IViewInventoriesByNameUseCases, ViewInventoriesByNameUseCases>();
+            builder.Services.AddTransient<IViewInventoriesByNameUseCases, ViewProductsByNameUseCases>();
             builder.Services.AddTransient<IAddInventoryUseCase, AddInventoryUseCase>();
             builder.Services.AddTransient<IEditInventoryUseCase, EditInventoryUseCase>();
             builder.Services.AddTransient<IDeleteInventoryUseCase,  DeleteInventoryUseCase>();
+
+            builder.Services.AddTransient<IViewProductsByNameUseCase, ViewProductsByNameUseCase>();
 
             var app = builder.Build();
 

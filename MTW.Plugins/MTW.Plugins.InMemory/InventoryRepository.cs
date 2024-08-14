@@ -30,7 +30,7 @@ namespace MTW.Plugins.InMemory
             return Task.CompletedTask;
         }
 
-        public Task DeleteRepositoryByIdAsync(int id)
+        public Task DeleteInventoryByIdAsync(int id)
         {
             var invToDel = _inventories.FirstOrDefault(i => i.InventoryId == id);
             if(invToDel is not null)

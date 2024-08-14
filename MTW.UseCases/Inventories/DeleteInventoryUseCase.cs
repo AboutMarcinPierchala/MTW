@@ -19,7 +19,7 @@ namespace MTW.UseCases.Inventories
 
         public async Task ExecuteAsync(int id)
         {
-            await _inventoryRepository.DeleteRepositoryByIdAsync(id);
+            await _inventoryRepository.DeleteInventoryByIdAsync(id);
         }
     }
 }
