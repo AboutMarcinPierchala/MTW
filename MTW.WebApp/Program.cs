@@ -18,6 +18,7 @@ namespace MTW.WebApp
             builder.Services.AddTransient<IViewInventoriesByNameUseCases, ViewInventoriesByNameUseCases>();
             builder.Services.AddTransient<IAddInventoryUseCase, AddInventoryUseCase>();
             builder.Services.AddTransient<IEditInventoryUseCase, EditInventoryUseCase>();
+            builder.Services.AddTransient<IDeleteInventoryUseCase,  DeleteInventoryUseCase>();
 
             var app = builder.Build();
 

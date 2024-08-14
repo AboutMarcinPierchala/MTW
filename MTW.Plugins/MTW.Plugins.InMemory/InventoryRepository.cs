@@ -30,7 +30,16 @@ namespace MTW.Plugins.InMemory
             return Task.CompletedTask;
         }
 
-        
+        public Task DeleteRepositoryByIdAsync(int id)
+        {
+            var invToDel = _inventories.FirstOrDefault(i => i.InventoryId == id);
+            if(invToDel is not null)
+            {
+                _inventories.Remove(invToDel);
+            }
+            return Task.CompletedTask;
+        }
+
         public Task EditInventoryAsync(int invId, Inventory inventory)
         {
             if (_inventories.Any(i => i.InventoryName.Equals(inventory.InventoryName, StringComparison.OrdinalIgnoreCase)
