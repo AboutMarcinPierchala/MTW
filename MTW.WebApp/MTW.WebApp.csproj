@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Components\Pages\Products\AddProduct.razor" />
     <Content Remove="Components\SearchBarComponent.razor" />
   </ItemGroup>
 
@@ -29,7 +28,6 @@
   <ItemGroup>
     <None Include="Components\Pages\Inventories\AddInventory.razor" />
     <None Include="Components\Controls\SearchBarComponent.razor" />
-    <None Include="Components\Pages\Products\AddProduct.razor" />
   </ItemGroup>
 
   <ItemGroup>
