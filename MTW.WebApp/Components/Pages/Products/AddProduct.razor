@@ -1,12 +1,14 @@
 ﻿@page "/addProduct"
 
+@rendermode InteractiveServer
+
 @inject IAddProductUseCase AddProductUseCase
 @inject NavigationManager NavigationManager
 
 <h3>Add new product</h3>
 <br/>
 <br/>
-<EditForm Model="product" FormName="formProductParams" OnValidSubmit="Save">
+<EditForm Model="product" OnValidSubmit="Save">
     <DataAnnotationsValidator></DataAnnotationsValidator>
     <ValidationSummary></ValidationSummary>
     <div class="form-group">
@@ -37,8 +39,8 @@
 </EditForm>
 
 @code {
-    [SupplyParameterFromForm]
     private Product product { get; set; } = new();
+
     private async Task Save()
     {
         await AddProductUseCase.ExecuteAsync(product);
