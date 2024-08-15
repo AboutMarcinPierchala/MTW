@@ -15,7 +15,8 @@ namespace MTW.WebApp
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddRazorComponents();
+            builder.Services.AddRazorComponents()
+                .AddInteractiveServerComponents();
             builder.Services.AddSingleton<IInventoryRepository, InventoryRepository>();
             builder.Services.AddTransient<IViewInventoriesByNameUseCases, ViewProductsByNameUseCases>();
             builder.Services.AddTransient<IAddInventoryUseCase, AddInventoryUseCase>();
@@ -23,7 +24,8 @@ namespace MTW.WebApp
             builder.Services.AddTransient<IDeleteInventoryUseCase,  DeleteInventoryUseCase>();
 
             builder.Services.AddTransient<IViewProductByNameUseCase, ViewProductByNameUseCase>();
-            builder.Services.AddTransient<IProductRepository, ProductRepository>();
+            builder.Services.AddSingleton<IProductRepository, ProductRepository>();
+            builder.Services.AddTransient<IDeleteProductUseCase, DeleteProductUseCase>();
 
             var app = builder.Build();
 
@@ -40,7 +42,8 @@ namespace MTW.WebApp
             app.UseStaticFiles();
             app.UseAntiforgery();
 
-            app.MapRazorComponents<App>();
+            app.MapRazorComponents<App>()
+                .AddInteractiveServerRenderMode();
 
             app.Run();
         }

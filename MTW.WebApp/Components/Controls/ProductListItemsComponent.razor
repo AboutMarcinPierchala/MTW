@@ -1,0 +1,35 @@
+﻿@inject IDeleteProductUseCase DeleteProductUseCase
+@if(product is not null)
+{
+    <tr>
+        <td>@product.ProductName</td>
+        <td>@product.Price PLN</td>
+        <td>@product.Quantity</td>
+        <td>@(@product.Price * @product.Quantity) PLN</td>
+        <td>
+            <a class="btn btn-light"
+                    type="button"
+            href="/editproduct/@product.ProductId">
+                EDIT
+            </a>
+        </td>
+        <td>
+            <button class="btn btn-danger"
+            type="button"
+                    @onclick="async () => { await HandleDelete(product.ProductId); }">
+                DELETE
+            </button>
+        </td>
+    </tr>
+}
+
+@code {
+    [Parameter]
+    public Product? product { get; set; }
+
+    private async Task HandleDelete(int prodId)
+    {
+        await DeleteProductUseCase.ExecuteAsync(prodId);
+        this.product = null;
+    }
+}
