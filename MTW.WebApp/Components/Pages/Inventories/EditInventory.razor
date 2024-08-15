@@ -51,9 +51,9 @@
     private Inventory? inventory { get; set; }
 
 
-    protected override void OnParametersSet()
+    protected override async Task OnParametersSetAsync()
     {
-        inventory ??= InventoryRepository.GetInventoryById(this.Id);
+        inventory ??= await InventoryRepository.GetInventoryByIdAsync(this.Id);
     }
 
     private async Task Edit()

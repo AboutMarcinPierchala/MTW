@@ -2,7 +2,7 @@
 
 namespace MTW.UseCases.Products.Interfaces
 {
-    public interface IViewProductsByNameUseCase
+    public interface IViewProductByNameUseCase
     {
         Task<IEnumerable<Product>> ExecuteAsync(string name = "");
     }

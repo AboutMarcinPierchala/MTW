@@ -32,30 +32,30 @@ namespace MTW.Plugins.InMemory
 
         public Task DeleteProductByIdAsync(int id)
         {
-            var invToDel = _products.FirstOrDefault(i => i.ProductId == id);
-            if (invToDel is not null)
+            var prodToDel = _products.FirstOrDefault(i => i.ProductId == id);
+            if (prodToDel is not null)
             {
-                _products.Remove(invToDel);
+                _products.Remove(prodToDel);
             }
             return Task.CompletedTask;
         }
 
-        public Task EditProductAsync(int invId, Product product)
+        public Task EditProductAsync(int prodId, Product product)
         {
             if (_products.Any(i => i.ProductName.Equals(product.ProductName, StringComparison.OrdinalIgnoreCase)
                 && i.ProductId != product.ProductId))
             {
                 return Task.CompletedTask;
             }
-            var invToEdit = _products.FirstOrDefault(i => i.ProductId == invId);
-            if (invToEdit != null)
+            var prodToEdit = _products.FirstOrDefault(i => i.ProductId == prodId);
+            if (prodToEdit != null)
             {
-                invToEdit.ProductName = product.ProductName;
-                invToEdit.Price = product.Price;
-                invToEdit.Quantity = product.Quantity;
+                prodToEdit.ProductName = product.ProductName;
+                prodToEdit.Price = product.Price;
+                prodToEdit.Quantity = product.Quantity;
             }
 
-            return Task.FromResult(invToEdit);
+            return Task.FromResult(prodToEdit);
         }
 
         public async Task<IEnumerable<Product>> GetProductsByNameAsync(string name)
@@ -67,10 +67,5 @@ namespace MTW.Plugins.InMemory
             return _products.Where(x => x.ProductName.Contains(name, StringComparison.OrdinalIgnoreCase));
         }
 
-        public Product? GetProductById(int id)
-        {
-            var product = _products.FirstOrDefault(i => i.ProductId == id);
-            return product;
-        }
     }
 }

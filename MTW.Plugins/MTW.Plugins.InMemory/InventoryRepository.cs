@@ -67,10 +67,9 @@ namespace MTW.Plugins.InMemory
             return _inventories.Where(x=>x.InventoryName.Contains(name, StringComparison.OrdinalIgnoreCase));
         }
 
-        public Inventory? GetInventoryById(int id)
+        public async Task<Inventory> GetInventoryByIdAsync(int id)
         {
-            var inventory = _inventories.FirstOrDefault(i=> i.InventoryId==id);
-                return inventory;            
+            return await Task.FromResult(_inventories.First(x=> x.InventoryId==id));
         }
     }
 }

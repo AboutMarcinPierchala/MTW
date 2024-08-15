@@ -13,6 +13,6 @@ namespace MTW.UseCases.PluginInterfaces
         Task DeleteInventoryByIdAsync(int id);
         Task EditInventoryAsync(int invId, Inventory inventory);
         Task<IEnumerable<Inventory>> GetInventoriesByNameAsync(string name);
-        public Inventory? GetInventoryById(int id);
+        Task<Inventory> GetInventoryByIdAsync(int id);
     }
 }

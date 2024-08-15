@@ -1,20 +1,20 @@
 ﻿using MTW.CoreBusiness;
 using MTW.UseCases.Inventories.Interfaces;
 using MTW.UseCases.PluginInterfaces;
-using MTW.UseCases.Products.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MTW.UseCases.Products.Interfaces;
 
 namespace MTW.UseCases.Products
 {
-    public class ViewProductsByNameUseCase : IViewProductsByNameUseCase
+    public class ViewProductByNameUseCase : IViewProductByNameUseCase
     {
         private readonly IProductRepository _productRepository;
 
-        public ViewProductsByNameUseCase(IProductRepository productRepository)
+        public ViewProductByNameUseCase(IProductRepository productRepository)
         {
             _productRepository = productRepository;
         }
