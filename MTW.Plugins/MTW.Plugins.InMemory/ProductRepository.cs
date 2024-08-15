@@ -67,5 +67,9 @@ namespace MTW.Plugins.InMemory
             return _products.Where(x => x.ProductName.Contains(name, StringComparison.OrdinalIgnoreCase));
         }
 
+        public async Task<Product> GetProductByIdAsync(int prodId)
+        {
+            return await Task.FromResult(_products.First(x => x.ProductId == prodId));
+        }
     }
 }

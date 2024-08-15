@@ -26,6 +26,8 @@ namespace MTW.WebApp
             builder.Services.AddTransient<IViewProductByNameUseCase, ViewProductByNameUseCase>();
             builder.Services.AddSingleton<IProductRepository, ProductRepository>();
             builder.Services.AddTransient<IDeleteProductUseCase, DeleteProductUseCase>();
+            builder.Services.AddTransient<IAddProductUseCase, AddProductUseCase>();
+            builder.Services.AddTransient<IEditProductUseCase, EditProductUseCase>();
 
             var app = builder.Build();
 
