@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace MTW.UseCases.Products
 {
-    public class ViewProductByNameUseCase : IViewProductByNameUseCase
+    public class AddProductUseCase : IAddProductUseCase
     {
         private readonly IProductRepository _productRepository;
 
-        public ViewProductByNameUseCase(IProductRepository productRepository)
+        public AddProductUseCase(IProductRepository productRepository)
         {
             _productRepository = productRepository;
         }
-        public async Task<IEnumerable<Product>> ExecuteAsync(string name = "")
+        public async Task ExecuteAsync(Product product)
         {
-            return await _productRepository.GetProductsByNameAsync(name);
+            await _productRepository.AddProductAsync(product);
         }
     }
 }

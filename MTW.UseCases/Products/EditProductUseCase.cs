@@ -1,4 +1,5 @@
 ﻿using MTW.CoreBusiness;
+using MTW.UseCases.Products;
 using MTW.UseCases.Products.Interfaces;
 using MTW.UseCases.PluginInterfaces;
 using System;
@@ -9,17 +10,17 @@ using System.Threading.Tasks;
 
 namespace MTW.UseCases.Products
 {
-    public class ViewProductByNameUseCase : IViewProductByNameUseCase
+    public class EditProductUseCase : IEditProductUseCase
     {
         private readonly IProductRepository _productRepository;
 
-        public ViewProductByNameUseCase(IProductRepository productRepository)
+        public EditProductUseCase(IProductRepository productRepository)
         {
             _productRepository = productRepository;
         }
-        public async Task<IEnumerable<Product>> ExecuteAsync(string name = "")
+        public async Task ExecuteAsync(int id, Product product)
         {
-            return await _productRepository.GetProductsByNameAsync(name);
+            await _productRepository.EditProductAsync(id, product);
         }
     }
 }

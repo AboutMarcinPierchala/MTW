@@ -1,4 +1,4 @@
-﻿namespace MTW.UseCases.Inventories.Interfaces
+﻿namespace MTW.UseCases.Products.Interfaces
 {
     public interface IDeleteProductUseCase
     {

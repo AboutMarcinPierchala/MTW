@@ -1,4 +1,4 @@
-﻿using MTW.UseCases.Inventories.Interfaces;
+﻿using MTW.UseCases.Products.Interfaces;
 using MTW.UseCases.PluginInterfaces;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MTW.UseCases.Inventories
+namespace MTW.UseCases.Products
 {
     public class DeleteProductUseCase : IDeleteProductUseCase
     {
