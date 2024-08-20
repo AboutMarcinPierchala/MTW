@@ -1,0 +1,33 @@
+﻿@inject IViewInventoriesByNameUseCases ViewInventoriesByNameUseCases
+
+<div class="input-group">
+    <input class="form-control"
+               placeholder="search by name"
+               @bind-value="this.searchFilter">
+    </input>
+    <button type="button" class="btn-success input-group-text" @onclick="SearchHandle">Search</button>
+</div>
+@if(inventories is not null && inventories.Count > 0)
+{
+    <div style="overflow-y:auto; max-height:200px; border: 1px solid gray; padding-top:10px ">
+        <ul style="list-style-type: none">
+            @foreach (var inv in inventories)
+            {
+                <li @key="inv.InventoryId" style="cursor:pointer">
+                    @inv.InventoryName
+                </li>
+            }
+        </ul>
+    </div>
+}
+
+@code {
+    private string searchFilter { get; set; } = string.Empty;
+    private List<Inventory> inventories = new();
+
+    private async Task SearchHandle()
+    {
+        inventories = (await ViewInventoriesByNameUseCases.ExecuteAsync(this.searchFilter)).ToList();
+    }
+
+}
