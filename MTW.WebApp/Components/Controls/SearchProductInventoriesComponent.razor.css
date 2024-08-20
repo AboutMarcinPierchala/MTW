@@ -1,0 +1,15 @@
+﻿
+.pseudo-dropdown-list {
+    overflow-y: auto;
+    max-height: 200px;
+    border: 1px solid gray;
+    padding-top: 10px
+}
+
+div ul {
+    list-style-type: none
+}
+
+div ul li {
+    cursor:pointer
+}
