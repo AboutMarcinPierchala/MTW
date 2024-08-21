@@ -20,5 +20,23 @@ namespace MTW.CoreBusiness
 
         [Range(1, int.MaxValue, ErrorMessage = "Price must be greater than zero.")]
         public double Price { get; set; }
+
+        public List<ProductInventory> ProductInventories { get; set; }
+
+        public void AddInventory(Inventory inventory)
+        {
+            if(this.ProductInventories.Any(i=>i.Inventory is not null &&
+            i.Inventory.InventoryName.Equals(inventory.InventoryName)))
+            {
+                ProductInventories.Add(new ProductInventory()
+                {
+                    InventoryId = inventory.InventoryId,
+                    Inventory = inventory,
+                    InventoryQuantity = inventory.Quantity,
+                    ProductId = this.ProductId,
+                    Product = this
+                });
+            }            
+        }
     }
 }
