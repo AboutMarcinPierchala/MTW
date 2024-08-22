@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MTW.CoreBusiness.Validation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace MTW.CoreBusiness
         [Range(1, int.MaxValue, ErrorMessage = "Price must be greater than zero.")]
         public double Price { get; set; }
 
+        [Product_IsPriceGreaherThanInventoriesCost]
         public List<ProductInventory> ProductInventories { get; set; } = new();
 
         public void AddInventory(Inventory inventory)
