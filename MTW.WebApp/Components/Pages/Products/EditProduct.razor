@@ -1,4 +1,5 @@
 ﻿@page "/editProduct/{id:int}"
+@rendermode InteractiveServer
 @inject IEditProductUseCase EditProductUseCase
 @inject IProductRepository ProductRepository
 @inject NavigationManager NavigationManager 
@@ -19,6 +20,10 @@
                        @bind-Value="product.ProductName"
                        class="form-control">
             </InputText>
+        </div>
+        <div class="form-group">
+            <label for="productInventories">Inventories</label>
+            <ProductInventoriesComponent Product="this.product"></ProductInventoriesComponent>
         </div>
         <div class="form-group">
             <label for="price">Product Price</label>

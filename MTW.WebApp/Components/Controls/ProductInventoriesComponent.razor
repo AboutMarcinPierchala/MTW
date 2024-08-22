@@ -1,4 +1,4 @@
-﻿<SearchProductInventoriesComponent></SearchProductInventoriesComponent>
+﻿<SearchProductInventoriesComponent OnInventorySelected="HandleInventoryToAddSelected"></SearchProductInventoriesComponent>
 @if (this.Product is not null &&
               this.Product.ProductInventories is not null &&
             this.Product.ProductInventories.Count > 0)
@@ -24,7 +24,11 @@
                             <input type="number" min="0" @bind-value="item.InventoryQuantity" />
                         </td>
                         <td>
-                            <a>REMOVE</a>
+                            <button type="button"
+                                class="btn btn-danger"
+                                @onclick="()=>RemoveInventoryFromProduct(item)">
+                            REMOVE
+                        </button>
                         </td>
                     </tr>
                 }
@@ -40,4 +44,14 @@
 @code {
     [Parameter]
     public Product? Product { get; set; }
+
+    private void RemoveInventoryFromProduct(ProductInventory inventory)
+    {
+        this.Product?.RemoveInventoryFromProduct(inventory);
+    }
+
+    private void HandleInventoryToAddSelected(Inventory inventory)
+    {
+        this.Product?.AddInventory(inventory);
+    }
 }

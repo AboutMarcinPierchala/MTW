@@ -26,6 +26,11 @@ namespace MTW.Plugins.InMemory
             }
             var maxId = _products.Max(i => i.ProductId);
             product.ProductId = maxId + 1;
+            //if(product.ProductInventories is not null &&
+            //    product.ProductInventories.Count > 0)
+            //{
+            //    product.Price += product.ProductInventories.Sum(i => i.Inventory.Quantity * i.Inventory.Price);
+            //}            
             _products.Add(product);
             return Task.CompletedTask;
         }
@@ -51,7 +56,7 @@ namespace MTW.Plugins.InMemory
             if (prodToEdit != null)
             {
                 prodToEdit.ProductName = product.ProductName;
-                prodToEdit.Price = product.Price;
+                prodToEdit.Price = product.Price;// + product.ProductInventories.Sum(i => i.Inventory.Quantity * i.Inventory.Price);
                 prodToEdit.Quantity = product.Quantity;
             }
 
